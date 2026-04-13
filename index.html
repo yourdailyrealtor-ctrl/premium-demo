@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Evergreen Peak Dental | Premium Care in Evergreen, CO</title>
+  <meta name="description" content="Evergreen Peak Dental — compassionate, modern dental care in the heart of Evergreen, CO. New patients welcome."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a3a5c;
+      --primary-light: #2a5a8c;
+      --accent: #c8a96e;
+      --accent-light: #f5f0e8;
+      --white: #ffffff;
+      --bg: #f8f9fc;
+      --text: #1a1a2e;
+      --text-muted: #5a6a7a;
+      --shadow-sm: 0 2px 12px rgba(26,58,92,0.08);
+      --shadow-md: 0 8px 40px rgba(26,58,92,0.12);
+      --shadow-lg: 0 20px 60px rgba(26,58,92,0.18);
+      --radius: 16px;
+      --transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 60px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(26,58,92,0.08);
+      transition: var(--transition);
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); letter-spacing: 0.5px; }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); text-decoration: none; transition: var(--transition); letter-spacing: 0.3px; }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-cta { background: var(--primary); color: white; padding: 10px 24px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: var(--transition); }
+    .nav-cta:hover { background: var(--primary-light); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(26,58,92,0.3); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; padding: 120px 60px 80px; gap: 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,169,110,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -150px; left: -150px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,58,92,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent-light); color: var(--accent);
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+      padding: 8px 18px; border-radius: 50px; margin-bottom: 28px;
+      border: 1px solid rgba(200,169,110,0.3);
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 700; line-height: 1.1; color: var(--primary);
+      margin-bottom: 24px; letter-spacing: -0.5px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px; max-width: 480px; font-weight: 300; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--primary); color: white; padding: 16px 36px;
+      border-radius: 50px; font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; transition: var(--transition);
+      box-shadow: 0 4px 24px rgba(26,58,92,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(26,58,92,0.45); background: var(--primary-light); }
+    .btn-ghost {
+      background: transparent; color: var(--primary); padding: 16px 36px;
+      border-radius: 50px; font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; transition: var(--transition);
+      border: 2px solid rgba(26,58,92,0.2);
+    }
+    .btn-ghost:hover { border-color: var(--primary); background: rgba(26,58,92,0.04); }
+    .hero-stats { display: flex; gap: 40px; margin-top: 56px; padding-top: 40px; border-top: 1px solid rgba(26,58,92,0.1); }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 700; color: var(--primary); line-height: 1; }
+    .stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+
+    /* Hero image mosaic */
+    .hero-visual { position: relative; z-index: 1; }
+    .hero-mosaic { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 280px 200px; gap: 16px; }
+    .mosaic-img {
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-md); transition: var(--transition);
+    }
+    .mosaic-img:hover { transform: scale(1.02); box-shadow: var(--shadow-lg); }
+    .mosaic-img.tall { grid-row: 1 / 3; }
+    .mosaic-img img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-badge {
+      position: absolute; bottom: -20px; left: -20px;
+      background: white; border-radius: var(--radius); padding: 20px 24px;
+      box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 14px;
+    }
+    .badge-icon { width: 48px; height: 48px; background: var(--accent-light); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+    .badge-text { font-size: 0.82rem; color: var(--text-muted); }
+    .badge-text strong { display: block; font-size: 1rem; color: var(--text); font-weight: 600; }
+
+    /* ─── SERVICES ─── */
+    .services { padding: 100px 60px; background: white; }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-tag { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: var(--primary); line-height: 1.2; }
+    .section-sub { font-size: 1.05rem; color: var(--text-muted); margin-top: 14px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7; font-weight: 300; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+    .service-card {
+      background: var(--bg); border-radius: var(--radius); padding: 36px 32px;
+      transition: var(--transition); border: 1px solid rgba(26,58,92,0.06);
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; inset: 0; border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      opacity: 0; transition: var(--transition);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .service-card:hover .service-icon { background: rgba(255,255,255,0.15); }
+    .service-card:hover .service-name, .service-card:hover .service-desc { color: white; }
+    .service-card > * { position: relative; z-index: 1; }
+    .service-icon { width: 56px; height: 56px; background: var(--accent-light); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px; transition: var(--transition); }
+    .service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; transition: var(--transition); }
+    .service-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; transition: var(--transition); }
+
+    /* ─── ABOUT ─── */
+    .about { padding: 100px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .about-img { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/5; position: relative; }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-accent {
+      position: absolute; bottom: 30px; right: -30px;
+      background: var(--accent); color: white; border-radius: var(--radius);
+      padding: 24px 28px; box-shadow: var(--shadow-md);
+    }
+    .about-accent .num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 700; line-height: 1; }
+    .about-accent .label { font-size: 0.8rem; margin-top: 4px; opacity: 0.85; }
+    .about-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; display: block; }
+    .about h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--primary); line-height: 1.2; margin-bottom: 20px; }
+    .about p { font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; font-weight: 300; }
+    .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .feature { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 500; color: var(--text); }
+    .feature::before { content: '✓'; width: 24px; height: 24px; background: var(--accent-light); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials { padding: 100px 60px; background: var(--primary); position: relative; overflow: hidden; }
+    .testimonials::before {
+      content: '\201C'; font-family: 'Cormorant Garamond', serif; font-size: 400px;
+      color: rgba(255,255,255,0.04); position: absolute; top: -80px; left: 40px; line-height: 1; pointer-events: none;
+    }
+    .testimonials .section-tag { color: var(--accent); }
+    .testimonials .section-title { color: white; }
+    .testimonials .section-sub { color: rgba(255,255,255,0.65); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+    .review-card {
+      background: rgba(255,255,255,0.07); border-radius: var(--radius); padding: 32px;
+      border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+    .review-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); }
+    .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+    .review-text { color: rgba(255,255,255,0.85); line-height: 1.75; font-size: 0.95rem; margin-bottom: 24px; font-weight: 300; font-style: italic; }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .review-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white; font-size: 0.85rem; }
+    .review-name { font-weight: 600; color: white; font-size: 0.9rem; }
+    .review-date { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+    /* ─── HOURS ─── */
+    .hours-section { padding: 100px 60px; background: white; }
+    .hours-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .hours-grid { display: flex; flex-direction: column; gap: 0; }
+    .hours-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 0; border-bottom: 1px solid rgba(26,58,92,0.08);
+      transition: var(--transition);
+    }
+    .hours-row:hover { padding-left: 8px; }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { font-weight: 500; color: var(--text); }
+    .hours-time { color: var(--text-muted); font-size: 0.9rem; }
+    .hours-time.closed { color: #e05555; font-weight: 500; }
+    .hours-cta-box { background: var(--primary); border-radius: var(--radius); padding: 48px 40px; color: white; }
+    .hours-cta-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; margin-bottom: 14px; }
+    .hours-cta-box p { opacity: 0.75; line-height: 1.7; margin-bottom: 32px; font-weight: 300; }
+    .hours-cta-box .btn-accent { display: inline-block; background: var(--accent); color: white; padding: 14px 32px; border-radius: 50px; font-weight: 600; text-decoration: none; transition: var(--transition); }
+    .hours-cta-box .btn-accent:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(200,169,110,0.4); }
+    .hours-cta-box .phone { display: flex; align-items: center; gap: 10px; margin-top: 20px; color: rgba(255,255,255,0.65); font-size: 0.9rem; text-decoration: none; transition: var(--transition); }
+    .hours-cta-box .phone:hover { color: white; }
+
+    /* ─── BOOKING CTA ─── */
+    .booking-section {
+      padding: 120px 60px; text-align: center;
+      background: linear-gradient(160deg, var(--accent-light) 0%, var(--bg) 100%);
+      position: relative; overflow: hidden;
+    }
+    .booking-section::before {
+      content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 800px; height: 800px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,169,110,0.15) 0%, transparent 70%);
+    }
+    .booking-section > * { position: relative; z-index: 1; }
+    .booking-section h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 700; color: var(--primary); margin-bottom: 20px; }
+    .booking-section p { font-size: 1.05rem; color: var(--text-muted); max-width: 480px; margin: 0 auto 40px; line-height: 1.75; font-weight: 300; }
+
+    /* ─── FOOTER ─── */
+    footer { background: #0f2137; color: rgba(255,255,255,0.5); padding: 48px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: white; }
+    .footer-info { font-size: 0.85rem; line-height: 1.8; }
+    .footer-info a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 40px; }
+      .hero-mosaic { grid-template-rows: 200px 160px; }
+      .services { padding: 60px 24px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+      .testimonials { padding: 60px 24px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .hours-section { padding: 60px 24px; }
+      .hours-inner { grid-template-columns: 1fr; gap: 40px; }
+      .booking-section { padding: 80px 24px; }
+      footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Evergreen Peak Dental</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#hours">Hours</a>
+    <a href="tel:7205550192" class="nav-cta">Book Appointment</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">⭐ 4.9 Stars · Evergreen, CO</div>
+    <h1>Dental Care That <span>Actually</span> Feels Good</h1>
+    <p>We know most people don't love going to the dentist. That's exactly why we built a practice that's different — calm, warm, and focused on making you comfortable every single visit.</p>
+    <div class="hero-btns">
+      <a href="tel:7205550192" class="btn-primary">📅 Book Appointment</a>
+      <a href="#services" class="btn-ghost">Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">12+</div><div class="stat-label">Years Serving Evergreen</div></div>
+      <div><div class="stat-num">2,400+</div><div class="stat-label">Happy Patients</div></div>
+      <div><div class="stat-num">4.9★</div><div class="stat-label">Google Rating</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-mosaic">
+      <div class="mosaic-img tall">
+        <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=600&q=80" alt="Modern dental office"/>
+      </div>
+      <div class="mosaic-img">
+        <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=600&q=80" alt="Dental care"/>
+      </div>
+      <div class="mosaic-img">
+        <img src="https://images.unsplash.com/photo-1609207834970-4b4e01ac4d18?w=600&q=80" alt="Happy patient"/>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-icon">🏆</div>
+      <div class="badge-text"><strong>Top Rated Dentist</strong>Evergreen, CO 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-tag">What We Offer</div>
+    <h2 class="section-title">Everything Your Smile Needs</h2>
+    <p class="section-sub">From routine cleanings to complete smile makeovers — we've got you covered under one roof.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🦷</div>
+      <div class="service-name">General Dentistry</div>
+      <div class="service-desc">Routine cleanings, exams, fillings, and preventive care to keep your smile healthy year after year.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <div class="service-name">Cosmetic Dentistry</div>
+      <div class="service-desc">Teeth whitening, veneers, and bonding to give you the smile you've always wanted.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔧</div>
+      <div class="service-name">Restorative Care</div>
+      <div class="service-desc">Crowns, bridges, implants, and dentures to restore function and confidence.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">😬</div>
+      <div class="service-name">Orthodontics</div>
+      <div class="service-desc">Invisalign and traditional braces for kids and adults — straighter teeth at any age.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚨</div>
+      <div class="service-name">Emergency Dental</div>
+      <div class="service-desc">Same-day appointments for toothaches, broken teeth, and dental emergencies. We're here when you need us.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👶</div>
+      <div class="service-name">Family & Pediatric</div>
+      <div class="service-desc">Gentle, fun care for kids of all ages. We make the dentist a place children actually look forward to.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about">
+    <div class="about-img" style="position:relative">
+      <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80" alt="Dr. Sarah Mitchell"/>
+      <div class="about-accent">
+        <div class="num">12+</div>
+        <div class="label">Years of Experience</div>
+      </div>
+    </div>
+    <div>
+      <span class="about-tag">Meet Your Dentist</span>
+      <h2>Dr. Sarah Mitchell, DDS</h2>
+      <p>Born and raised in Colorado, Dr. Mitchell has been serving the Evergreen community for over a decade. She founded Evergreen Peak Dental with one goal in mind: create a dental practice she'd actually want to go to herself.</p>
+      <p>Her approach is simple — take the time to really listen, explain everything clearly, and never recommend a treatment that isn't truly necessary. Her patients aren't just patients, they're neighbors.</p>
+      <div class="about-features">
+        <div class="feature">Same-day emergency care</div>
+        <div class="feature">Sedation options available</div>
+        <div class="feature">All insurance accepted</div>
+        <div class="feature">Flexible payment plans</div>
+        <div class="feature">Digital X-rays</div>
+        <div class="feature">New patients welcome</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+  <div class="section-header">
+    <div class="section-tag">Patient Reviews</div>
+    <h2 class="section-title">What Our Patients Say</h2>
+    <p class="section-sub">Don't take our word for it — here's what the Evergreen community thinks.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I have serious dental anxiety and Dr. Mitchell is the first dentist who's ever made me feel truly at ease. She explains everything, checks in constantly, and genuinely cares. I actually look forward to my appointments now — never thought I'd say that!"</p>
+      <div class="review-author">
+        <div class="review-avatar">KL</div>
+        <div><div class="review-name">Karen L.</div><div class="review-date">2 months ago</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Brought my whole family here — kids included — and everyone had a great experience. The staff is warm, the office is beautiful, and they're always running on time. Switching to Evergreen Peak was the best decision we made."</p>
+      <div class="review-author">
+        <div class="review-avatar">MR</div>
+        <div><div class="review-name">Mike R.</div><div class="review-date">1 month ago</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Had a dental emergency on a Saturday and they got me in within two hours. Dr. Mitchell fixed the issue quickly and followed up the next day to check how I was doing. That kind of care is rare. This is my dentist for life."</p>
+      <div class="review-author">
+        <div class="review-avatar">TW</div>
+        <div><div class="review-name">Tom W.</div><div class="review-date">3 weeks ago</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section class="hours-section" id="hours">
+  <div class="hours-inner">
+    <div>
+      <div class="section-tag">Visit Us</div>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--primary);margin-bottom:32px">Hours & Location</h2>
+      <div class="hours-grid">
+        <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">8:00 AM – 5:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">8:00 AM – 5:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">8:00 AM – 6:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">8:00 AM – 6:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">8:00 AM – 3:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9:00 AM – 2:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">Closed</span></div>
+      </div>
+      <p style="margin-top:24px;font-size:0.85rem;color:var(--text-muted)">📍 1234 Evergreen Pkwy, Suite 200, Evergreen, CO 80439</p>
+    </div>
+    <div class="hours-cta-box">
+      <h3>Ready to Book?</h3>
+      <p>New patients are always welcome. Call us or request an appointment online — we'll find a time that works for you.</p>
+      <a href="tel:7205550192" class="btn-accent">📅 Book Appointment</a>
+      <a href="tel:7205550192" class="phone">📞 (720) 555-0192</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section class="booking-section">
+  <h2>Your Best Smile Starts Here</h2>
+  <p>Whether it's your first visit or you're coming back — we can't wait to see you. New patients always welcome.</p>
+  <a href="tel:7205550192" class="btn-primary">Book Your Appointment Today</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Evergreen Peak Dental</div>
+  <div class="footer-info">
+    1234 Evergreen Pkwy Suite 200, Evergreen, CO 80439<br>
+    <a href="tel:7205550192">(720) 555-0192</a> · Mon–Fri 8AM–6PM
+  </div>
+  <div style="font-size:0.8rem">© 2026 Evergreen Peak Dental</div>
+</footer>
+
+</body>
+</html>
